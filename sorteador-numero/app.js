@@ -2,6 +2,15 @@ function sortear(){
     let quantidade = parseInt(document.getElementById('quantidade').value);
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
+    if('de' >= 'ate'){
+        alert('o campo "Do mumero" presisa se menor que o campo "Ate numero". Verifique!')
+        return;
+    }
+
+    if (quantidade > (ate - de + 1)) {
+        alert('O campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+        return;
+      }
 
     let sorteados = [];
     let numero;
@@ -14,7 +23,7 @@ function sortear(){
         }
         
         sorteados.push(numero);  
-    }
+    }      
 
 let resultado = document.getElementById('resultado');
 resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`
